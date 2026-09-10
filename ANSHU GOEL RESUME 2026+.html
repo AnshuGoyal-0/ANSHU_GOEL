@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshu Goel - Professional Portfolio & CV</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colorful Theme Palette */
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --gradient-sidebar: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #0f172a;
+            --accent-pink: #ec4899;
+            --accent-purple: #a855f7;
+            --accent-blue: #0284c7;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .resume-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            background: var(--gradient-sidebar);
+            color: #f8fafc;
+            padding: 3rem 2rem;
+        }
+
+        /* HACKER CIRCULAR ICON STYLING */
+        .profile-header {
+            text-align: center;
+        }
+
+        .hacker-icon-badge {
+            width: 95px;
+            height: 95px;
+            margin: 0 auto 1.2rem auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981 0%, #0284c7 50%, #a855f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 0 10px rgba(255,255,255,0.25);
+            border: 3px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hacker-icon-badge i {
+            font-size: 2.6rem;
+            color: #ffffff;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+        }
+
+        .hacker-icon-badge:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
+            border-color: #10b981;
+        }
+
+        .profile-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-header h2 {
+            font-size: 0.95rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.07);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .btn-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            border-color: transparent;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1rem;
+            color: #ffffff;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        /* Colorful Tag System */
+        .skill-tag {
+            padding: 5px 10px;
+            border-radius: 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .tag-ai { background: rgba(168, 85, 247, 0.2); color: #e9d5ff; border: 1px solid rgba(168, 85, 247, 0.4); }
+        .tag-python { background: rgba(56, 189, 248, 0.2); color: #bae6fd; border: 1px solid rgba(56, 189, 248, 0.4); }
+        .tag-web { background: rgba(16, 185, 129, 0.2); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4); }
+        .tag-sys { background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); }
+        .tag-soft { background: rgba(236, 72, 153, 0.2); color: #fbcfe8; border: 1px solid rgba(236, 72, 153, 0.4); }
+
+        .education-item {
+            margin-bottom: 1.2rem;
+            background: rgba(255,255,255,0.04);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-pink);
+        }
+        
+        .education-item h4 {
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        
+        .education-item p {
+            color: #38bdf8;
+            font-size: 0.82rem;
+            margin: 2px 0;
+        }
+        
+        .education-item span {
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        /* WORKSPACE ITEM STYLING */
+        .workspace-item {
+            margin-bottom: 1rem;
+            background: rgba(255,255,255,0.04);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .workspace-item .workspace-title {
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 3px;
+        }
+
+        .workspace-item p {
+            color: #cbd5e1;
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            padding: 3rem 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            color: var(--secondary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.4rem;
+        }
+
+        .section-title i {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 2.5rem;
+            text-align: justify;
+            line-height: 1.7;
+            background: #f1f5f9;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* SERVICES & CAPABILITIES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .service-card {
+            padding: 1.25rem;
+            border-radius: 14px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+        }
+
+        .card-edu { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+        .card-consult { background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); }
+        .card-auto { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .card-repair { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); }
+        .card-web { background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%); }
+        .card-data { background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%); }
+        .card-security { background: linear-gradient(135deg, #dc2626 0%, #e11d48 100%); }
+        .card-design { background: linear-gradient(135deg, #db2777 0%, #f43f5e 100%); }
+
+        .service-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.83rem;
+            opacity: 0.95;
+            line-height: 1.45;
+        }
+
+        /* SOFTWARE, IDEs & WORKSPACE TOOLKIT SECTION */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .software-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .software-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .software-box h5 {
+            font-size: 0.92rem;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .software-box ul {
+            list-style: none;
+        }
+
+        .software-box li {
+            font-size: 0.82rem;
+            color: var(--text-main);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .software-box li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--accent-purple);
+        }
+
+        .job-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .job-company {
+            font-size: 0.88rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .job-date {
+            font-size: 0.75rem;
+            color: #ffffff;
+            background: var(--gradient-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+        }
+
+        .job-desc {
+            list-style: none;
+        }
+
+        .job-desc li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-size: 0.88rem;
+        }
+
+        .job-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+
+        .cert-category-title {
+            font-size: 1rem;
+            color: #ffffff;
+            background: var(--secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin: 1.8rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-badge {
+            font-size: 0.75rem;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            .main-content {
+                padding: 2rem;
+            }
+            .services-grid, .software-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile-header">
+            <!-- CIRCULAR HACKER ICON -->
+            <div class="hacker-icon-badge" title="Cyber & Ethical Hacking Specialist">
+                <!-- <i class="fas fa-shield-alt"></i> -->
+                 <img src="./ANSHU_GOEL.jpg" alt="Profile Photo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </div>
+            <h1>ANSHU GOEL</h1>
+            <h2>Computer Teacher | Automation Engineer | AI & EdTech Founder</h2>
+        </div>
+
+        <div class="contact-info">
+            <a href="mailto:codemasteranshu@gmail.com" class="btn-link">
+                <i class="fas fa-envelope" style="color: #38bdf8;"></i> codemasteranshu@gmail.com
+            </a>
+            <a href="tel:+917838203098" class="btn-link">
+                <i class="fas fa-phone-alt" style="color: #4ade80;"></i> +91-7838203098
+            </a>
+            <a href="https://sites.google.com/view/anshugoel/about-me" class="btn-link" target="_blank">
+                <i class="fas fa-globe" style="color: #f472b6;"></i> Portfolio Website
+            </a>
+            <a href="https://github.com/AnshuGoyal-0" class="btn-link" target="_blank">
+                <i class="fab fa-github" style="color: #c084fc;"></i> GitHub Profile
+            </a>
+            <a href="https://www.linkedin.com/in/anshugoyal1892" class="btn-link" target="_blank">
+                <i class="fab fa-linkedin" style="color: #60a5fa;"></i> LinkedIn Profile
+            </a>
+            <a href="#" class="btn-link" style="pointer-events: none;">
+                <i class="fas fa-map-marker-alt" style="color: #fbbf24;"></i> New Delhi - 110012, India
+            </a>
+        </div>
+
+        <!-- Categorized Colorful Skills -->
+        <div class="sidebar-section">
+            <h3><i class="fas fa-laptop-code"></i> Core Expertise</h3>
+            <div class="skills-container">
+                <span class="skill-tag tag-ai">Generative AI & LLMs</span>
+                <span class="skill-tag tag-ai">Machine Learning</span>
+                <span class="skill-tag tag-ai">Computer Vision</span>
+                <span class="skill-tag tag-python">Python Scripting</span>
+                <span class="skill-tag tag-python">Pandas & NumPy</span>
+                <span class="skill-tag tag-python">Tableau Analytics</span>
+                <span class="skill-tag tag-web">Web Dev (Bootstrap)</span>
+                <span class="skill-tag tag-web">Google Apps Script</span>
+                <span class="skill-tag tag-web">Java & SQL</span>
+                <span class="skill-tag tag-sys">Linux & Shell Script</span>
+                <span class="skill-tag tag-sys">PowerShell & CMD</span>
+                <span class="skill-tag tag-sys">Cyber Recon & Audit</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3><i class="fas fa-brain"></i> Soft Skills</h3>
+            <div class="skills-container">
+                <span class="skill-tag tag-soft">Business Communication</span>
+                <span class="skill-tag tag-soft">Body Language & Speaking</span>
+                <span class="skill-tag tag-soft">Yale Psychology</span>
+                <span class="skill-tag tag-soft">Customer Service</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3><i class="fas fa-graduation-cap"></i> Education & Currently Pursuing</h3>
+            
+            <div class="education-item">
+                <h4>Bachelor of Computer Applications (BCA)</h4>
+                <p>IGNOU</p>
+                <span>Currently Pursuing</span>
+            </div>
+
+            <div class="education-item">
+                <h4>A Level (Adv. Diploma in IT)</h4>
+                <p>NIELIT (Govt. of India)</p>
+                <span>Currently Pursuing</span>
+            </div>
+
+            <div class="education-item">
+                <h4>IBM SkillsBuild Tech & AI Platform</h4>
+                <p>IBM SkillsBuild</p>
+                <span>Currently Pursuing | AI Level Up & Tech Credentials</span>
+            </div>
+
+            <div class="education-item">
+                <h4>O Level 'IT' (Foundation Course)</h4>
+                <p>NIELIT (Govt. of India)</p>
+                <span>Completed | Grade B (Cert #1732774)</span>
+            </div>
+
+            <div class="education-item">
+                <h4>Web Development Diploma (1 Year)</h4>
+                <p>STP Computer Education</p>
+                <span>Grade A (Feb 2024 – Feb 2025)</span>
+            </div>
+
+            <div class="education-item">
+                <h4>Diploma in Computer Applications (DCA - 6 Months)</h4>
+                <p>STP Computer Education</p>
+                <span>Grade B (July 2023 – Jan 2024)</span>
+            </div>
+
+            <div class="education-item">
+                <h4>Advance Excel Course (1 Month)</h4>
+                <p>STP Computer Education</p>
+                <span>Grade A (Jan 2024 – Feb 2024)</span>
+            </div>
+        </div>
+
+        <!-- WORKSPACES & OFFICE SUITES SECTION -->
+        <div class="sidebar-section">
+            <h3><i class="fas fa-desktop"></i> Workspaces & Office Suites</h3>
+            
+            <div class="workspace-item" style="border-left-color: #ea4335;">
+                <div class="workspace-title"><i class="fab fa-google" style="color: #ea4335;"></i> Google Workspace</div>
+                <p>Docs, Sheets, Slides, Forms, Drive, Calendar, Meet, Google Apps Script Automation</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #00a4ef;">
+                <div class="workspace-title"><i class="fab fa-windows" style="color: #00a4ef;"></i> Microsoft Workspace</div>
+                <p>MS Word, Advance Excel, PowerPoint, Outlook, OneDrive, Access, MS Forms</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #10b981;">
+                <div class="workspace-title"><i class="fas fa-file-alt" style="color: #10b981;"></i> LibreOffice Suite</div>
+                <p>Writer, Calc, Impress, Draw, Math, Base Open-Source Productivity</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #f59e0b;">
+                <div class="workspace-title"><i class="fas fa-edit" style="color: #f59e0b;"></i> ONLYOFFICE Workspace</div>
+                <p>Desktop Editors, Document Builder, Cloud Collaboration Suite</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #ec4899;">
+                <div class="workspace-title"><i class="fas fa-briefcase" style="color: #ec4899;"></i> Zoho Workspace</div>
+                <p>Zoho Docs, Sheets, Show, Mail, CRM Suite & Office Cloud Applications</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #a855f7;">
+                <div class="workspace-title"><i class="fas fa-palette" style="color: #a855f7;"></i> Graphic Design Suite</div>
+                <p>CorelDRAW (Poster/Certificate Vector Design), Adobe Photoshop, Canva</p>
+            </div>
+
+            <div class="workspace-item" style="border-left-color: #38bdf8;">
+                <div class="workspace-title"><i class="fas fa-brain" style="color: #38bdf8;"></i> Digital & PKM Workspaces</div>
+                <p>Obsidian, Notion, IBM SkillsBuild, Anaconda Navigator, VS Code, Google Colab</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        
+        <!-- SUMMARY -->
+        <h2 class="section-title"><i class="fas fa-user-circle"></i> Professional Profile</h2>
+        <p class="summary">
+            Innovative Computer Teacher, Software Engineer, and MSME-registered enterprise founder with extensive experience across school education, EdTech automation, and software development. Specializes in delivering Python programming, digital literacy, and project-based learning. Adept at bridging traditional teaching with modern technology by leveraging tools like <strong>Google Apps Script</strong> to automate administrative workflows, <strong>IBM SkillsBuild</strong> for continuous learning, and <strong>AI technologies</strong> to enhance curriculum design. Holds official Government MSME registration for EduSphere Computer Academy alongside NIELIT O Level IT certification and over 30 specialized professional certifications in Data Science, Machine Learning, Python Development, Web Development, and Systems Engineering.
+        </p>
+
+        <!-- PROFESSIONAL CAPABILITIES & SERVICES SECTION -->
+        <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Capabilities & Services</h2>
+        <div class="services-grid">
+            <div class="service-card card-edu">
+                <h4><i class="fas fa-chalkboard-teacher"></i> Secondary & Vocational IT Instruction</h4>
+                <p>Delivering Class XI Information Technology, Informatics Practices, and practical Work Experience curricula. Running MSME-certified vocational computer academies for diploma-level computing.</p>
+            </div>
+
+            <div class="service-card card-consult">
+                <h4><i class="fas fa-laptop-house"></i> Enterprise IT Consulting & Technical Services</h4>
+                <p>Providing custom programming, software maintenance, data entry digitization, and facilities management services officially registered under NIC 6201, 6202, 6311, and 8521.</p>
+            </div>
+
+            <div class="service-card card-auto">
+                <h4><i class="fas fa-robot"></i> Educational & Administrative Automation</h4>
+                <p>Engineering zero-cost automation scripts using Google Apps Script, Python, and Batch to generate auto-grading engines, fee management systems, attendance logs, and daily school schedules.</p>
+            </div>
+
+            <div class="service-card card-web">
+                <h4><i class="fas fa-globe"></i> Zero-Cost Web Development & Portal Hosting</h4>
+                <p>Architecting accessible, zero-hosting-cost educational web portals using Google Sites, GitHub Pages, Bootstrap 5, and SQLite for budget-conscious schools and non-profit institutions.</p>
+            </div>
+
+            <div class="service-card card-data">
+                <h4><i class="fas fa-chart-bar"></i> Data Science, Analytics & Dashboard Design</h4>
+                <p>Performing automated data cleaning (Pandas, NumPy), complex SQL/SQLite relational database design, assessment report generation, and interactive Tableau visualization dashboards.</p>
+            </div>
+
+            <div class="service-card card-repair">
+                <h4><i class="fas fa-tools"></i> Disaster Recovery, Backups & Maintenance</h4>
+                <p>Managing computer hardware maintenance, peripheral repairs, system recovery configurations, digital document backup systems, and OS-level maintenance (NIC 6209 & 9511).</p>
+            </div>
+
+            <div class="service-card card-security">
+                <h4><i class="fas fa-shield-alt"></i> Linux System Administration & Security Auditing</h4>
+                <p>Deploying terminal-based bash scripting, PowerShell functions, cron job schedulers, basic ethical hacking methodologies, and teaching cyber hygiene protocols to students.</p>
+            </div>
+
+            <div class="service-card card-design">
+                <h4><i class="fas fa-paint-brush"></i> Creative Media, Graphics & Curriculum Design</h4>
+                <p>Designing vector graphics in CorelDRAW, UI mockups in Photoshop/Canva, recording structured video lectures via OBS Studio, and integrating Text-to-Speech audio into digital courseware.</p>
+            </div>
+        </div>
+
+        <!-- SOFTWARE, IDEs & WORKSPACE TOOLKIT SECTION -->
+        <h2 class="section-title"><i class="fas fa-cubes"></i> Software Tools, IDEs & Development Workspaces</h2>
+        <div class="software-grid">
+            <div class="software-box" style="border-top-color: #a855f7;">
+                <h5><i class="fas fa-terminal" style="color: #a855f7;"></i> IDEs & Code Workspaces</h5>
+                <ul>
+                    <li>Visual Studio Code (VS Code)</li>
+                    <li>PyCharm IDE</li>
+                    <li>Jupyter Notebooks</li>
+                    <li>Google Colab</li>
+                    <li>Anaconda Navigator</li>
+                    <li>Android Studio / Sketchware</li>
+                    <li>Obsidian (PKM Workspace)</li>
+                </ul>
+            </div>
+
+            <div class="software-box" style="border-top-color: #38bdf8;">
+                <h5><i class="fas fa-brain" style="color: #38bdf8;"></i> AI, Data Science & Platforms</h5>
+                <ul>
+                    <li>IBM SkillsBuild Platform</li>
+                    <li>Python (Pandas, NumPy, Scikit-Learn)</li>
+                    <li>Tableau Desktop & Public</li>
+                    <li>Text-to-Image AI Art Generators</li>
+                    <li>AI Voice Assistants (JARVIS Engine)</li>
+                    <li>Computer Vision (OpenCV Essentials)</li>
+                    <li>NLP & Sentiment Analysis Tools</li>
+                </ul>
+            </div>
+
+            <div class="software-box" style="border-top-color: #10b981;">
+                <h5><i class="fas fa-code" style="color: #10b981;"></i> Web Dev & Database Suite</h5>
+                <ul>
+                    <li>HTML5, CSS3 & Bootstrap 5</li>
+                    <li>SQLite Database Studio</li>
+                    <li>MySQL & Relational DBMS</li>
+                    <li>Java Development Kit (JDK)</li>
+                    <li>Google Apps Script API Engine</li>
+                    <li>Git & GitHub Repository Tools</li>
+                </ul>
+            </div>
+
+            <div class="software-box" style="border-top-color: #f59e0b;">
+                <h5><i class="fas fa-desktop" style="color: #f59e0b;"></i> Operating Systems & Terminal</h5>
+                <ul>
+                    <li>Linux Distributions (Ubuntu/Debian)</li>
+                    <li>Linux Bash Terminal Scripting</li>
+                    <li>Windows PowerShell Environment</li>
+                    <li>Batch Scripting (CMD Utility)</li>
+                    <li>Reconnaissance & Audit Utilities</li>
+                    <li>VirtualBox & System Backup Tools</li>
+                </ul>
+            </div>
+
+            <div class="software-box" style="border-top-color: #ec4899;">
+                <h5><i class="fas fa-paint-brush" style="color: #ec4899;"></i> Design & Office Productivity</h5>
+                <ul>
+                    <li>CorelDRAW (Vector Graphics)</li>
+                    <li>Adobe Photoshop (UI Asset Design)</li>
+                    <li>MS Excel (Advanced Modeling)</li>
+                    <li>MS Word & PowerPoint Suite</li>
+                    <li>Google Workspace (Docs, Sheets, Slides)</li>
+                    <li>LibreOffice & ONLYOFFICE Suites</li>
+                    <li>Zoho Workspace Suite</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="job-title">Educator & Computer Teacher</div>
+                <div class="job-company">Bala Pritam Guru Harkishan International School (BPGHIPS)</div>
+                <div class="job-date">July 2025 – Present</div>
+                <ul class="job-desc">
+                    <li>Teach Information Technology to Class XI E and Informatics Practices to senior secondary students.</li>
+                    <li>Design and execute practical Work Experience curriculum across multiple grade levels.</li>
+                    <li>Manage digital backups of vital school documents and oversee system recovery settings.</li>
+                    <li>Generate daily automated teaching schedules to ensure smooth academic delivery.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Founder & Managing Director</div>
+                <div class="job-company">EduSphere Computer Academy (Registered Govt. MSME Micro Enterprise)</div>
+                <div class="job-date">March 2025 – Present</div>
+                <ul class="job-desc">
+                    <li>Officially registered enterprise under Ministry of MSME, Govt. of India (Reg. No: UDYAM-DL-03-0058638).</li>
+                    <li>Direct IT education services, software support/maintenance, data processing, and IT consultancy operations.</li>
+                    <li>Provide vocational technical education, general secondary IT instruction, and computer repair/maintenance services.</li>
+                    <li>Automate operational tasks, including managing student fee schedules and sending automated policy reminders.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Senior Computer Teacher & Technology Mentor</div>
+                <div class="job-company">Freelance & Private Tutoring</div>
+                <div class="job-date">July 2023 – June 2025</div>
+                <ul class="job-desc">
+                    <li>Mentored students in Python, Java, SQL, and core computer applications via 1-on-1 and small group sessions.</li>
+                    <li>Delivered project-based learning to assist students with practical files and academic assignments.</li>
+                    <li>Served as an Instructor at a local Computer Institute (April 2024 - June 2025), teaching MS Office, Advanced Excel, and HTML.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS & GOVERNMENT REGISTRATIONS TIMELINE -->
+        <h2 class="section-title"><i class="fas fa-award"></i> Certifications, Registrations & Credentials</h2>
+        
+        <!-- Major Govt & Institutional Qualifications -->
+        <h3 class="cert-category-title"><i class="fas fa-landmark"></i> Government Registrations & Major Diplomas</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">Government MSME Udyam Registration Certificate</div>
+                <div class="job-company">Ministry of Micro, Small & Medium Enterprises, Govt. of India</div>
+                <div class="job-date">Registered March 17, 2025</div>
+                <ul class="job-desc">
+                    <li>Official Government Udyam Registration (UDYAM-DL-03-0058638) for EduSphere Computer Academy.</li>
+                    <li>Certified Micro Enterprise covering IT consulting, software support, secondary education, and vocational computer training.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">NIELIT O Level 'IT' Certification</div>
+                <div class="job-company">National Institute of Electronics & Information Technology (NIELIT)</div>
+                <div class="job-date">Issued Sept 2020 | Grade B (Cert #1732774)</div>
+                <ul class="job-desc">
+                    <li>Govt. recognized foundation course covering Information Technology, web design, Python programming, and IoT.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Web Development Diploma (12-Month Duration)</div>
+                <div class="job-company">STP Computer Education (Regd. MSME / ISO 9001:2015)</div>
+                <div class="job-date">Feb 2024 – Feb 2025 | Grade A (Diploma #380005)</div>
+                <ul class="job-desc">
+                    <li>Comprehensive year-long professional training program in front-end and back-end web development.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Diploma in Computer Applications (DCA - 6 Months)</div>
+                <div class="job-company">STP Computer Education</div>
+                <div class="job-date">July 2023 – Jan 2024 | Grade B (Diploma #170404)</div>
+                <ul class="job-desc">
+                    <li>Core computing applications, office productivity tools, and computer management fundamentals.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Advance Excel Course Certificate (1 Month)</div>
+                <div class="job-company">STP Computer Education</div>
+                <div class="job-date">Jan 2024 – Feb 2024 | Grade A (Cert #190567)</div>
+                <ul class="job-desc">
+                    <li>Advanced spreadsheet modeling, formulas, data analysis, and reporting tools.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI & Data Science -->
+        <h3 class="cert-category-title"><i class="fas fa-brain"></i> Artificial Intelligence, Data Science & Machine Learning</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">IBM SkillsBuild Learning & AI Level Up Program</div>
+                <div class="job-company">IBM SkillsBuild Platform</div>
+                <div class="job-date">Active / Currently Pursuing</div>
+                <ul class="job-desc">
+                    <li>Engaged in AI Level Up assessments, technology skills tracks, and earning digital credentials in tech and artificial intelligence.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Data Science BootCamp - Analysing Data To Creating ML Models</div>
+                <div class="job-company">GeeksforGeeks (8-Week Bootcamp)</div>
+                <ul class="job-desc">
+                    <li>Specialized bootcamp on data analysis, exploratory data analysis, and building machine learning models.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">The Complete Artificial Intelligence (AI) for Professionals</div>
+                <div class="job-company">Udemy (Dey Academy) | Dec 29, 2025 (14 Hours)</div>
+                <span class="cert-badge">UC-f8eb9068-1922-4a54-a8ae-defe17e26f9f</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">10 in 1 Course : Text to Image AI Art Generators Masterclass</div>
+                <div class="job-company">Udemy (Prince Patni) | Aug 9, 2025 (1.5 Hours)</div>
+                <span class="cert-badge">UC-392c1b51-daac-46d0-9a21-e63c44480262</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Machine Learning with Python</div>
+                <div class="job-company">IBM / Coursera | Jan 19, 2024</div>
+                <ul class="job-desc">
+                    <li>Supervised and unsupervised learning algorithms, regression, classification, and model evaluation.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Sentiment Analysis using Python</div>
+                <div class="job-company">Great Learning Academy | Feb 2024</div>
+                <ul class="job-desc">
+                    <li>Natural Language Processing (NLP) techniques and text analysis using Python.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Computer Vision Essentials</div>
+                <div class="job-company">Great Learning Academy | Jan 2024</div>
+                <span class="cert-badge">Image Processing & Vision Fundamentals</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">2024 Data Visualization in Tableau & Python</div>
+                <div class="job-company">Udemy (Surendra Varma Pericherla) | April 9, 2024 (2 Hours)</div>
+                <span class="cert-badge">UC-523e4e62-8de1-419c-a038-2adc3a8e9ff8</span>
+            </div>
+        </div>
+
+        <!-- Python Development -->
+        <h3 class="cert-category-title"><i class="fab fa-python"></i> Python Development & Scripting Specializations</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">Mastering Python, Pandas, Numpy for Absolute Beginners</div>
+                <div class="job-company">Udemy (Toppers Bootcamp) | May 2, 2025 (6.5 Hours)</div>
+                <span class="cert-badge">UC-c160ce4b-40e6-47d3-ab36-77df554700d6</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Python Complete Course For Python Beginners</div>
+                <div class="job-company">Udemy (Horizon Tech) | April 29, 2025 (7.5 Hours)</div>
+                <span class="cert-badge">UC-99394829-c548-43ac-b418-69319f4e4f0e</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Learn To Create AI Assistant (JARVIS) With Python</div>
+                <div class="job-company">Udemy (Arbaz Khan) | May 15, 2024 (2.5 Hours)</div>
+                <span class="cert-badge">UC-83356426-31ab-4d85-8558-d6f798ec66db</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Crash Course on Python</div>
+                <div class="job-company">Google / Coursera | Jan 4, 2024</div>
+                <span class="cert-badge">Core Syntax & Scripting Automation</span>
+            </div>
+        </div>
+
+        <!-- Soft Skills & Humanities -->
+        <h3 class="cert-category-title"><i class="fas fa-users"></i> Soft Skills & Professional Growth</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">Introduction to Psychology</div>
+                <div class="job-company">Yale University / Coursera | Jan 9, 2024</div>
+                <span class="cert-badge">Cognitive Science & Human Behavior</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Professional Diploma in Business English and Communications</div>
+                <div class="job-company">Udemy (MTF Institute) | April 5, 2024 (2 Hours)</div>
+                <span class="cert-badge">UC-a248a423-518a-4acc-a3c8-4ffb4e7461f3</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Body Language: Appear Confident and Poised When You Speak</div>
+                <div class="job-company">Udemy (TJ Walker) | April 5, 2024 (1 Hour)</div>
+                <span class="cert-badge">UC-346fdb3d-0107-4ddd-9a88-71f0c807bbec</span>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>

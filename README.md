@@ -1,2 +1,0 @@
-# ANSHU_GOEL
-RESUME
